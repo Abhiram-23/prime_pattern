@@ -1,0 +1,31 @@
+import math
+def prime(n):
+    a=[True]*(n+1)
+    d=[]
+    a[0]=False
+    a[1]=False
+    for i in range(2,int(math.sqrt(n+1))):
+        if(a[i]==True):
+            for j in range(i*i,n+1,i):
+                a[j]=False
+    for i in range(len(a)):
+        if(a[i]==True):
+            d.append(i)
+    return d
+b=prime(1000000)
+a = int(input())
+c=0
+for i in range(a):
+    for j in range(i):
+        c+=1
+        while(c in b):
+            c+=1
+        print(c,end=' ')
+    print()
+for i in range(a):
+    for j in range(a-i):
+        c+=1
+        while(c in b):
+            c+=1
+        print(c,end=' ')
+    print()

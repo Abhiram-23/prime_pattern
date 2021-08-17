@@ -1,0 +1,18 @@
+def SieveOfEratosthenes(n):
+    prime = [True for i in range(n+1)]
+    p = 2
+    d=[]
+    while (p * p <= n):
+        if (prime[p] == True):
+            for i in range(p * p, n+1, p):
+
+                prime[i] = False
+        p += 1
+    for p in range(2, n+1):
+        if prime[p]:
+            d.append(p)
+    return(d)
+SieveOfEratosthenes(100)
+[true,true,true,true,true......]
+[0,1,2,3,4....100]
+[true,true,
